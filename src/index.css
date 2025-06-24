@@ -113,3 +113,11 @@ body {
 .section {
   @apply pt-20 lg:pt-32;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,14 +1,15 @@
 import { Decal, Float, Html, OrbitControls, useTexture } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import React, { Suspense } from 'react'
+import Tooltip from './Tooltip';
 
-const SkillIcosahedron = ({ imageURL, imageSize }) => {
+const SkillIcosahedron = ({ imageURL, imageSize, animationOn }) => {
     const texture = useTexture(imageURL, undefined, { preload: false });
 
     return (
-        <Float speed={3} rotationIntensity={0.5} floatIntensity={0.5}>
+        <Float speed={animationOn ? 3 : 0} rotationIntensity={animationOn ? 0.5 : 0} floatIntensity={animationOn ? 0.5 : 0}>
             <mesh>
-                <icosahedronGeometry args={[1.3, 1]} />
+                <icosahedronGeometry args={[1.3, 2]} />
                 <meshStandardMaterial color="#27272a" />
                 <Decal
                     position={[0, 0, 1]}
@@ -20,7 +21,7 @@ const SkillIcosahedron = ({ imageURL, imageSize }) => {
             </mesh>
 
             <mesh scale={1}>
-                <icosahedronGeometry args={[1.3, 1]} />
+                <icosahedronGeometry args={[1.3, 2]} />
                 <meshBasicMaterial
                     color={"#fafafa"}
                     wireframe
@@ -34,9 +35,9 @@ const SkillIcosahedron = ({ imageURL, imageSize }) => {
     )
 }
 
-const SkillOrb = ({ imageURL, label, imageSize }) => {
+const SkillOrb = ({ imageURL, label, imageSize, animationOn }) => {
     return (
-        <div className="w-[150px] h-[150px] group relative">
+        <div className="group relative mb-5 overflow-visible">
             <Canvas
                 dpr={[1, 1.5]}
                 shadows={false}
@@ -53,17 +54,12 @@ const SkillOrb = ({ imageURL, label, imageSize }) => {
                         </div>
                     </Html>
                 }>
-                    <SkillIcosahedron imageURL={imageURL} imageSize={imageSize} />
+                    <SkillIcosahedron imageURL={imageURL} imageSize={imageSize} animationOn={animationOn} />
                 </Suspense>
-                <OrbitControls enableZoom={false} enablePan={false} />
+                {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
             </Canvas>
 
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 transition-all duration-150 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-                <div className="relative inline-block bg-zinc-800 text-white px-4 py-2 rounded-lg shadow ring-1 ring-zinc-50/5 text-sm">
-                    {label}
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-zinc-800" />
-                </div>
-            </div>
+            <Tooltip label={label} classes={"-bottom-4"} />
         </div>
 
 
