@@ -1,10 +1,11 @@
 import { Decal, Float, Html, OrbitControls, useTexture } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
-import React, { Suspense } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import React, { Suspense, useRef, useState } from 'react'
+import * as THREE from 'three';
 import Tooltip from './Tooltip';
 
 const SkillIcosahedron = ({ imageURL, imageSize, animationOn }) => {
-    const texture = useTexture(imageURL, undefined, { preload: false });
+    const texture = useTexture(imageURL);
 
     return (
         <Float speed={animationOn ? 3 : 0} rotationIntensity={animationOn ? 0.5 : 0} floatIntensity={animationOn ? 0.5 : 0}>
@@ -27,15 +28,49 @@ const SkillIcosahedron = ({ imageURL, imageSize, animationOn }) => {
                     wireframe
                     transparent
                     opacity={0.05}
-
                 />
             </mesh>
         </Float>
+    );
+};
 
-    )
-}
+// 🧠 Helper to smoothly rotate camera to default
+const ResetControls = ({ controlsRef, animationOn }) => {
+    const defaultPosition = new THREE.Vector3(0, 0, 3);
+    const { camera } = useThree();
+
+    const [shouldReset, setShouldReset] = useState(false);
+    useFrame(() => {
+        if (!shouldReset || !controlsRef.current || !animationOn) return;
+
+        camera.position.lerp(defaultPosition, 0.05);
+        controlsRef.current.target.lerp(new THREE.Vector3(0, 0, 0), 0.05);
+        controlsRef.current.update();
+
+        const distance = camera.position.distanceTo(defaultPosition);
+        if (distance < 0.01) {
+            setShouldReset(false);
+        }
+    });
+
+    return (
+        <OrbitControls
+            ref={controlsRef}
+            enableZoom={false}
+            enablePan={false}
+            onEnd={() => {
+                setTimeout(() => {
+
+                    setShouldReset(true);
+                }, 2000)
+            }}
+        />
+    );
+};
 
 const SkillOrb = ({ imageURL, label, imageSize, animationOn }) => {
+    const controlsRef = useRef();
+
     return (
         <div className="group relative mb-5 overflow-visible">
             <Canvas
@@ -56,15 +91,13 @@ const SkillOrb = ({ imageURL, label, imageSize, animationOn }) => {
                 }>
                     <SkillIcosahedron imageURL={imageURL} imageSize={imageSize} animationOn={animationOn} />
                 </Suspense>
-                {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
+
+                <ResetControls controlsRef={controlsRef} animationOn={animationOn} />
             </Canvas>
 
             <Tooltip label={label} classes={"-bottom-4"} />
         </div>
+    );
+};
 
-
-    )
-}
-
-export default React.memo(SkillOrb)
-
+export default React.memo(SkillOrb);

@@ -183,7 +183,7 @@ const Skills = () => {
         },
     ]
 
-    const [animation, setanimation] = useState(true);
+    const [animation, setanimation] = useState(false);
 
     return (
         <section id='skills' className='section'>
@@ -199,11 +199,11 @@ const Skills = () => {
                         </p>
                     </div>
                     <div className='flex gap-2 items-center max-md:mb-8'>
-                        <div className='group relative'>
+                        <div className='group relative '>
 
                             <button
                                 onClick={() => setanimation(!animation)}
-                                className={`w-14 h-8 flex items-center px-1 rounded-full transition-colors duration-300 ${animation ? 'bg-sky-400' : 'bg-zinc-600'
+                                className={`w-14 h-8 flex items-center px-1 rounded-full cursor-pointer transition-colors duration-300 ${animation ? 'bg-sky-400' : 'bg-zinc-600'
                                     }`}
                             >
                                 <div
