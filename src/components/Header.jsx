@@ -11,7 +11,7 @@ const Header = () => {
             <div className="max-w-screen-2xl w-full mx-auto px-4 flex justify-between items-center md:px-6">
                 <h1>
                     <a href="/" className="logo">
-                        <img src="/aa_logo.png" alt="Ayyan Ali Logo" width={40} height={40} className="invert brightness-100" />
+                        <img src="/aa_logo.png" alt="Ayyan Ali Logo" width={40} height={40} className="opacity-70 hover:opacity-100 transition-all invert brightness-100" />
                     </a>
                 </h1>
                 <div className="relative md:justify-self-center">

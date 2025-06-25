@@ -3,6 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import React, { Suspense, useRef, useState } from 'react'
 import * as THREE from 'three';
 import Tooltip from './Tooltip';
+import { LuLoaderCircle } from 'react-icons/lu';
 
 const SkillIcosahedron = ({ imageURL, imageSize, animationOn }) => {
     const texture = useTexture(imageURL);
@@ -43,8 +44,8 @@ const ResetControls = ({ controlsRef, animationOn }) => {
     useFrame(() => {
         if (!shouldReset || !controlsRef.current || !animationOn) return;
 
-        camera.position.lerp(defaultPosition, 0.05);
-        controlsRef.current.target.lerp(new THREE.Vector3(0, 0, 0), 0.05);
+        camera.position.lerp(defaultPosition, 0.1);
+        controlsRef.current.target.lerp(new THREE.Vector3(0, 0, 0), 0.1);
         controlsRef.current.update();
 
         const distance = camera.position.distanceTo(defaultPosition);
@@ -83,11 +84,7 @@ const SkillOrb = ({ imageURL, label, imageSize, animationOn }) => {
                 <ambientLight intensity={5} />
                 <directionalLight position={[2, 2, 2]} />
                 <Suspense fallback={
-                    <Html center>
-                        <div className="text-white text-sm bg-zinc-900 px-3 py-1 rounded shadow">
-                            Loading...
-                        </div>
-                    </Html>
+                    <Html><LuLoaderCircle className='animate-spin' /></Html>
                 }>
                     <SkillIcosahedron imageURL={imageURL} imageSize={imageSize} animationOn={animationOn} />
                 </Suspense>

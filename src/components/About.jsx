@@ -1,41 +1,52 @@
+import React from 'react';
 
-const About = () => {
-    const aboutItems = [
-        {
-            label: "Completed Projects",
-            number: 4
-        },
-        {
-            label: "Years of Learning",
-            number: 2
-        },
-    ]
+const About = ({ aboutItems }) => {
     return (
-        <section id="about" className="section">
-            <div className="container">
-                <div className="bg-zinc-800/50 p-7 rounded-2xl md:p-12">
-                    <p className="text-zinc-300 mb-4 md:mb-8 md:text-xl md:max-w-[60ch]">
-                        Hello There! I'm Ayyan, a Final Year Software Engineering Student. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam cupiditate cumque tempora reiciendis eos, impedit necessitatibus asperiores dicta? Non dolor quia nobis, voluptas nulla consequuntur ipsam.
-                    </p>
-                    <div className="flex flex-wrap items-center gap-4 md:gap-7 ">
-                        {aboutItems.map(({ label, number }, index) => (
-                            <div key={index}>
-                                <div className="flex items-center md:mb-2">
-                                    <span className="text-2xl font-semibold md:text-4xl">{number}</span>
-                                    <span className="text-sky-400 font-semibold md:text-3xl">+</span>
+        <section id="about" className="section relative">
+            <div className="container relative">
+                <div className="bg-gradient-to-br from-zinc-800 via-zinc-900 to-black border border-zinc-700 p-6 md:p-10 rounded-3xl shadow-xl shadow-black/20 overflow-hidden relative">
+
+                    <div className="absolute -left-1 top-0 h-full w-1 bg-gradient-to-b from-sky-400 to-blue-800 rounded-full" />
+
+                    <div className="grid md:grid-cols-2 gap-10 items-center">
+
+                        <div className="text-zinc-300 space-y-5">
+                            <h2 className="text-white text-2xl md:text-3xl font-bold">
+                                Hello, I'm <span className="text-sky-400">Ayyan Ali</span>
+                            </h2>
+                            <p className="md:text-lg leading-relaxed">
+                                A <span className="text-sky-400 font-medium">Rector’s Honor</span>–Holding final year Software Engineering student at FAST NUCES, Karachi. I love solving real problems with code — especially on the <span className="text-white font-medium">backend</span>, but I also enjoy clean UI and design.
+                            </p>
+                            <p className="md:text-lg leading-relaxed">
+                                I specialize in full-stack web development, core software engineering and have a growing passion for <span className="text-white font-medium">AI/ML</span>. I’m currently seeking internship opportunities to build impactful products and grow as a developer.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-4">
+                            {aboutItems.map(({ label, number, plus }, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-zinc-900 border border-sky-800/40 rounded-xl px-4 py-5 text-center hover:shadow-md hover:shadow-sky-700/30 transition duration-200"
+                                >
+                                    <div className="text-white text-3xl font-bold flex justify-center items-center">
+                                        {number}
+                                        {plus && <span className="text-sky-400 ml-1">+</span>}
+                                    </div>
+                                    <p className="text-sm text-zinc-400 mt-1">{label}</p>
                                 </div>
-                                <p className="text-sm text-zinc-400">{label}</p>
-                            </div>
-                        ))}
-                        <img src="/aa_logo.png" alt="Logo"
-                            width={30}
-                            height={30}
-                            className="invert brightness-100 ml-auto md:w-[40px] md:h-[40px]" />
+                            ))}
+                        </div>
                     </div>
+
+                    <img
+                        src="/aa_logo.png"
+                        alt="Logo"
+                        className="absolute bottom-5 right-6 w-8 h-8 md:w-10 md:h-10 opacity-70 hover:opacity-100 transition invert brightness-100"
+                    />
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default About
+export default About;

@@ -1,21 +1,8 @@
 import React from 'react'
 import ProjectCard from './ProjectCard'
 
-const Projects = () => {
-    const allProjects = [
-        {
-            imgURL: "/react.webp",
-            title: "AI-Powered HR Management System",
-            tags: ["React", "NodeJS", "ExpressJS", "PostgreSQL", "TailwindCSS", "Python"],
-            projectLink: "www.google.com"
-        },
-        {
-            imgURL: "/react.webp",
-            title: "AI-Powered HR Management System",
-            tags: ["React", "NodeJS", "ExpressJS", "PostgreSQL", "TailwindCSS", "Python"],
-            projectLink: "https://www.google.com"
-        },
-    ]
+const Projects = ({ allProjects }) => {
+
     return (
         <section id='projects' className='section'>
             <div className='container'>

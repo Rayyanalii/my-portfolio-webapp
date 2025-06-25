@@ -1,4 +1,5 @@
 import { ButtonOutline, ButtonPrimary } from "./Button"
+import HeroModel from './HeroModel';
 
 const Hero = () => {
     return (
@@ -6,9 +7,8 @@ const Hero = () => {
             <div className="container lg:grid lg:grid-cols-2 items-center lg:gap-10 ">
                 <div>
                     <div className="flex items-center gap-3">
-                        {/* To be changed later */}
                         <figure className="img-box w-9 h-9 rounded-lg">
-                            <img src="/aa_logo.png" alt="Temporary" className="img-cover"
+                            <img src="/Connor.png" alt="Temporary" className="img-cover"
                                 width={40}
                                 height={40}
                             />
@@ -21,22 +21,22 @@ const Hero = () => {
                         </div>
                     </div>
                     <h2 className="headline-1 hero-heading">
-                        Building Scalable Modern Websites for the Future
+                        Future-Focused Software Engineer in the Making
                     </h2>
                     <div className="flex items-center gap-3">
                         <ButtonPrimary
                             label={"Download CV"}
                             icon={"download"}
+                            href="/resume.pdf"
+                            download={true}
                         />
-                        <ButtonOutline href={"#about"} label={"Scroll Down"}
+                        <ButtonOutline href={"#about"} label={"Start Exploring"}
                             icon={"arrow_downward"} />
                     </div>
                 </div>
                 {/* To be changed later */}
                 <div className="hidden lg:block">
-                    <figure className="w-full max-w-[480px] ml-auto bg-gradient-to-t from-sky-400 via-25% via-sky-400/40 to-65% rounded-[60px] overflow-hidden">
-                        <img src="/aa_logo.png" alt="Ayyan Ali Banner" className="w-full" width={656} height={800} />
-                    </figure>
+                    <HeroModel />
                 </div>
             </div>
         </section>

@@ -32,11 +32,11 @@ const EducationItem = ({ degree, institution, duration, grade, description, logo
         ?.trim();
 
     return (
-        <div className="relative group pl-8">
-            <div className="absolute left-0 top-4 w-3 h-3 rounded-full bg-sky-400 ring-4 ring-sky-400/30 transition-all group-hover:scale-110" />
+        <div className="relative group sm:pl-8">
+            <div className="absolute left-0 top-4 w-3 h-3 rounded-full bg-sky-400 ring-4 ring-sky-400/30 transition-all group-hover:scale-110 max-sm:hidden" />
 
             <div className="flex items-start gap-5">
-                <div className="w-14 h-14 flex-shrink-0 rounded-full bg-zinc-800 ring-2 ring-zinc-700 overflow-hidden transition-all">
+                <div className="w-14 h-14 flex-shrink-0 rounded-full bg-zinc-800 ring-2 ring-zinc-700 overflow-hidden transition-all ">
                     <img src={logoURL} alt={institution} className="w-full h-full object-contain p-0.5" />
                 </div>
 
