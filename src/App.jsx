@@ -77,16 +77,22 @@ const experienceData = [
 
 const allProjects = [
   {
-    imgURL: "/react.webp",
+    imgURL: "/hrms-project.png",
     title: "AI-Powered HR Management System",
     tags: ["React", "NodeJS", "ExpressJS", "PostgreSQL", "TailwindCSS", "Python"],
-    projectLink: "www.google.com"
+    projectLink: "https://github.com/Rayyanalii/HR-Management-System"
   },
   {
-    imgURL: "/react.webp",
-    title: "AI-Powered HR Management System",
-    tags: ["React", "NodeJS", "ExpressJS", "PostgreSQL", "TailwindCSS", "Python"],
-    projectLink: "https://www.google.com"
+    imgURL: "/travel-project.png",
+    title: "Majestic Travels",
+    tags: ["React", "NodeJS", "ExpressJS", "OracleDB"],
+    projectLink: "https://github.com/Rayyanalii/Travel-Website"
+  },
+  {
+    imgURL: "/carrental-project.png",
+    title: "Car Rental Management System",
+    tags: ["Java", "JavaFX", "Scene Builder", "File Handling"],
+    projectLink: "https://github.com/Rayyanalii/CarRentalGUI"
   },
 ]
 
