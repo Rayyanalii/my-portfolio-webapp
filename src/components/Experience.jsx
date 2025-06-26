@@ -7,8 +7,8 @@ const Experience = ({ experienceData }) => {
     return (
         <section id="experience" className="section">
             <div className="container">
-                <h2 className="headline-2">Experience</h2>
-                <p className="text-zinc-400 mt-3 mb-8">
+                <h2 className="headline-2 reveal-up">Experience</h2>
+                <p className="text-zinc-400 mt-3 mb-8 reveal-up">
                     A snapshot of my development experience, freelance work, and academic contributions in a timeline.
                 </p>
 

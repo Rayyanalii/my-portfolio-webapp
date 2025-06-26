@@ -13,14 +13,14 @@ const Skills = ({ skillItems }) => {
                 <div className='flex justify-between items-start max-md:flex-col'>
                     <div>
 
-                        <h2 className="headline-2">
+                        <h2 className="headline-2 reveal-up">
                             Technological Skills
                         </h2>
-                        <p className="text-zinc-400 mt-3 mb-4 md:mb-8 max-w-[50ch]">
+                        <p className="text-zinc-400 mt-3 mb-4 md:mb-8 max-w-[50ch] reveal-up">
                             Below are the tools and technologies I have worked with in the past to design and develop exceptional softwares and websites.
                         </p>
                     </div>
-                    <div className='flex gap-2 items-center max-md:mb-8'>
+                    <div className='flex gap-2 items-center max-md:mb-8 reveal-up mt-1'>
                         <div className='group relative '>
 
                             <button
@@ -46,8 +46,8 @@ const Skills = ({ skillItems }) => {
                 <div className="overflow-visible">
                     {skillItems.map(({ heading, skills }, index) => (
                         <div key={index} className='overflow-visible'>
-                            <h3 className='headline-3'>{heading}</h3>
-                            <div className='flex overflow-x-auto no-scrollbar overflow-y-hidden' onMouseDown={(e) => {
+                            <h3 className='headline-3 reveal-up'>{heading}</h3>
+                            <div className='flex overflow-x-auto no-scrollbar overflow-y-hidden reveal-up' onMouseDown={(e) => {
                                 const el = e.currentTarget;
                                 let startX = e.pageX - el.offsetLeft;
                                 let scrollLeft = el.scrollLeft;
@@ -88,7 +88,7 @@ const Skills = ({ skillItems }) => {
                             >
 
                                 {skills.map(({ label, imageURL, imageSize }, index) => (
-                                    <div key={index}>
+                                    <div key={index} className=''>
                                         <SkillOrb imageURL={imageURL} label={label} imageSize={imageSize} animationOn={animation} />
                                     </div>
                                 ))}

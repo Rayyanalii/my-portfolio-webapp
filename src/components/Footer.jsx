@@ -8,16 +8,16 @@ const Footer = ({ sitemap, socials }) => {
             <div className="container">
                 <div className="lg:grid lg:grid-cols-2 ">
                     <div className="mb-10 ">
-                        <h2 className="headline-1 mb-8 lg:max-w-[12ch]">
+                        <h2 className="headline-1 mb-8 lg:max-w-[12ch] reveal-up">
                             Let's work together today!
                         </h2>
                         <ButtonPrimary href={"mailto:rayyanali2705@gmail.com"} label={"Start Project"}
-                            icon={"chevron_right"} />
+                            icon={"chevron_right"} classes={" reveal-up"} />
                     </div>
                     <div className="grid grid-cols-2 gap-4 lg:pl-20 ">
                         <div>
-                            <p className="mb-2">Sitemap</p>
-                            <ul>
+                            <p className="mb-2 reveal-up">Sitemap</p>
+                            <ul className=' reveal-up'>
                                 {sitemap.map(({ label, href }, key) => (
                                     <li key={key}>
                                         <a href={href}
@@ -30,8 +30,8 @@ const Footer = ({ sitemap, socials }) => {
                         </div>
 
                         <div>
-                            <p className="mb-2">Socials</p>
-                            <ul>
+                            <p className="mb-2 reveal-up">Socials</p>
+                            <ul className=' reveal-up'>
                                 {socials.map(({ label, href }, key) => (
                                     <li key={key}>
                                         <a href={href}
@@ -46,7 +46,7 @@ const Footer = ({ sitemap, socials }) => {
 
                     </div>
                 </div>
-                <div className="flex items-center justify-between pt-10 mb-8 ">
+                <div className="flex items-center justify-between pt-10 mb-8 reveal-up">
                     <a href="" className="">
                         <img src="/aa_logo.png" width={40} height={40} alt="Logo" className='invert brightness-100 opacity-70 hover:opacity-100 transition-all' />
                     </a>

@@ -34,7 +34,6 @@ const Hero = () => {
                             icon={"arrow_downward"} />
                     </div>
                 </div>
-                {/* To be changed later */}
                 <div className="hidden lg:block">
                     <HeroModel />
                 </div>

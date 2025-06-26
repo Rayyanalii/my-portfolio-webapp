@@ -139,3 +139,7 @@ body {
 .submit-btn {
   @apply [&]:max-w-full w-full justify-center;
 }
+
+.reveal-up {
+  @apply translate-y-20 opacity-0;
+}

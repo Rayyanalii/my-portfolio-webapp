@@ -4,7 +4,7 @@ const About = ({ aboutItems }) => {
     return (
         <section id="about" className="section relative">
             <div className="container relative">
-                <div className="bg-gradient-to-br from-zinc-800 via-zinc-900 to-black border border-zinc-700 p-6 md:p-10 rounded-3xl shadow-xl shadow-black/20 overflow-hidden relative">
+                <div className="bg-gradient-to-br from-zinc-800 via-zinc-900 to-black border border-zinc-700 p-6 md:p-10 rounded-3xl shadow-xl shadow-black/20 overflow-hidden relative reveal-up">
 
                     <div className="absolute -left-1 top-0 h-full w-1 bg-gradient-to-b from-sky-400 to-blue-800 rounded-full" />
 

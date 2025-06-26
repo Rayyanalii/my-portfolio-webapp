@@ -9,6 +9,14 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Experience from './components/Experience'
 
+import { ReactLenis } from 'lenis/react'
+import { gsap } from "gsap";
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+
 const aboutItems = [
   {
     label: "Technical Experience Years",
@@ -21,8 +29,8 @@ const aboutItems = [
     plus: false
   },
   {
-    label: "Completed Projects",
-    number: 4,
+    label: "Completed MVPs",
+    number: 3,
     plus: false
   },
 ]
@@ -40,7 +48,7 @@ const educationData = [
     degree: "Intermediate (F.Sc Pre-Engineering)",
     institution: "Bahria College Karsaz, Karachi",
     duration: "2020 – 2022",
-    grade: "Grade: A (83%)",
+    grade: "Grade: A (86%)",
     logoURL: "/bahria.webp",
     description: "",
   },
@@ -329,8 +337,29 @@ const footerSocials = [
 ];
 
 const App = () => {
+
+  useGSAP(() => {
+    const elements = gsap.utils.toArray(".reveal-up")
+
+    elements.forEach((element) => {
+      gsap.to(element, {
+        scrollTrigger: {
+          trigger: element,
+          scrub: true,
+
+          start: "-200 bottom",
+          end: "bottom 80%"
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out'
+      })
+    })
+  })
+
   return (
-    <>
+    <ReactLenis root>
       <Header />
       <main>
 
@@ -338,12 +367,12 @@ const App = () => {
         <About aboutItems={aboutItems} />
         <Education educationData={educationData} />
         <Experience experienceData={experienceData} />
-        <Skills skillItems={skillItems} />
         <Projects allProjects={allProjects} />
+        <Skills skillItems={skillItems} />
         <Contact socialLinks={contactUsSocialLinks} />
       </main>
       <Footer sitemap={footerSitemap} socials={footerSocials} />
-    </>
+    </ReactLenis>
   )
 }
 
