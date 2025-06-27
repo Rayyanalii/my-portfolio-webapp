@@ -1,4 +1,4 @@
-import { Decal, Float, Html, OrbitControls, useTexture } from '@react-three/drei'
+import { Decal, Float, Html, OrbitControls, Preload, useTexture } from '@react-three/drei'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import React, { Suspense, useRef, useState } from 'react'
 import * as THREE from 'three';
@@ -9,7 +9,7 @@ const SkillIcosahedron = ({ imageURL, imageSize, animationOn }) => {
     const texture = useTexture(imageURL);
 
     return (
-        <Float speed={animationOn ? 3 : 0} rotationIntensity={animationOn ? 0.5 : 0} floatIntensity={animationOn ? 0.5 : 0}>
+        <Float speed={animationOn ? 2 : 0} rotationIntensity={animationOn ? 1 : 0} floatIntensity={animationOn ? 2 : 0}>
             <mesh>
                 <icosahedronGeometry args={[1.3, 2]} />
                 <meshStandardMaterial color="#27272a" />
@@ -35,7 +35,6 @@ const SkillIcosahedron = ({ imageURL, imageSize, animationOn }) => {
     );
 };
 
-// 🧠 Helper to smoothly rotate camera to default
 const ResetControls = ({ controlsRef, animationOn }) => {
     const defaultPosition = new THREE.Vector3(0, 0, 3);
     const { camera } = useThree();
@@ -75,13 +74,14 @@ const SkillOrb = ({ imageURL, label, imageSize, animationOn }) => {
     return (
         <div className="group relative mb-5 overflow-visible">
             <Canvas
-                dpr={[1, 1.5]}
+
+                frameloop={animationOn ? "always" : "demand"}
                 shadows={false}
                 camera={{ position: [0, 0, 3] }}
                 style={{ width: '150px', height: '150px', cursor: "pointer" }}
-                gl={{ alpha: true }}
+                gl={{ preserveDrawingBuffer: true }}
             >
-                <ambientLight intensity={5} />
+                <ambientLight intensity={4} />
                 <directionalLight position={[2, 2, 2]} />
                 <Suspense fallback={
                     <Html><LuLoaderCircle className='animate-spin' /></Html>
@@ -90,6 +90,7 @@ const SkillOrb = ({ imageURL, label, imageSize, animationOn }) => {
                 </Suspense>
 
                 <ResetControls controlsRef={controlsRef} animationOn={animationOn} />
+                <Preload all />
             </Canvas>
 
             <Tooltip label={label} classes={"-bottom-4"} />
