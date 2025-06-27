@@ -1,5 +1,6 @@
 # Ayyan Ali — Portfolio Website
-![View Live](https://ayyan-ali-portfolio.vercel.app/)
+[View Live](https://ayyan-ali-portfolio.vercel.app/)
+
 
 A modern, interactive portfolio I made to showcase my skills, projects, and experiences.
 ## Overview
