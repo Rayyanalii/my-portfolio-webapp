@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import SkillOrb from './SkillOrb'
-import Tooltip from './Tooltip';
 
 const Skills = ({ skillItems }) => {
-
-    const [showInfo, setShowInfo] = useState(false);
     const [lightweight, setLightweight] = useState(false);
 
     return (
@@ -92,7 +89,7 @@ const Skills = ({ skillItems }) => {
                                 {skills.map(({ label, imageURL, imageSize }, index) => (
                                     <div key={index} className=''>
                                         {lightweight ? <div
-                                            className="mt-2 mb-4 w-[130px] h-[130px] bg-zinc-800/30 rounded-2xl flex flex-col items-center justify-center text-center gap-3 p-3 shadow-lg ring-1 ring-white/5 transition-all duration-300 hover:scale-[1.03] mr-5"
+                                            className="mt-2 mb-4 w-[130px] h-[130px] bg-zinc-800/30 rounded-2xl flex flex-col items-center justify-center text-center gap-3 p-3 shadow-lg ring-1 ring-white/5 transition-all duration-300 hover:scale-105 mr-5"
                                         >
                                             <img
                                                 src={imageURL}

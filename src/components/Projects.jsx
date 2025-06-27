@@ -11,7 +11,7 @@ const Projects = ({ allProjects }) => {
                         My MVPs Highlights
                     </h2>
                     <a href="https://github.com/Rayyanalii?tab=repositories" className='mt-2 text-zinc-400 text-sm hover:underline transition-all' target="_blank"
-                        rel="noopener noreferrer">View More</a>
+                        rel="noopener noreferrer">View All</a>
                 </div>
                 <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
                     {allProjects.map(({ imgURL, title, tags, projectLink }, index) => (

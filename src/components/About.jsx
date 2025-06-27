@@ -15,7 +15,7 @@ const About = ({ aboutItems }) => {
                                 Hello, I'm <span className="text-sky-400">Ayyan Ali</span>
                             </h2>
                             <p className="md:text-lg leading-relaxed">
-                                A <span className="text-sky-400 font-medium">Rector’s Honor</span>–Holding final year Software Engineering student at FAST NUCES, Karachi. I love solving real problems with code — especially on the <span className="text-white font-medium">backend</span>, but I also enjoy clean UI and design.
+                                A <span className="text-sky-400 font-medium">Rector’s Honor</span>–Holding Final Year Software Engineering student at FAST NUCES, Karachi. I love solving real problems with code, especially on the <span className="text-white font-medium">backend</span>, but I also enjoy clean UI and design.
                             </p>
                             <p className="md:text-lg leading-relaxed">
                                 I specialize in full-stack web development, core software engineering and have a growing passion for <span className="text-white font-medium">AI/ML</span>. I’m currently seeking internship opportunities to build impactful products and grow as a developer.

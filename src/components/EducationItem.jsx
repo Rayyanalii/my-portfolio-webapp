@@ -10,6 +10,13 @@ const EducationItem = ({ degree, institution, duration, grade, description, logo
     const deanMatch = description?.match(deanRegex);
     const rectorMatch = description?.match(rectorRegex);
 
+    if (rectorMatch) {
+        honors.push({
+            title: "Rector's List",
+            semesters: rectorMatch[1],
+            icon: <FaMedal className="text-yellow-300" />,
+        });
+    }
     if (deanMatch) {
         honors.push({
             title: "Dean's List",
@@ -18,13 +25,6 @@ const EducationItem = ({ degree, institution, duration, grade, description, logo
         });
     }
 
-    if (rectorMatch) {
-        honors.push({
-            title: "Rector's List",
-            semesters: rectorMatch[1],
-            icon: <FaMedal className="text-yellow-300" />,
-        });
-    }
 
     const cleanedDescription = description
         ?.replace(deanRegex, '')
