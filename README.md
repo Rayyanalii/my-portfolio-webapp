@@ -1,12 +1,23 @@
-# React + Vite
+# Ayyan Ali — Portfolio Website
+![View Live](https://ayyan-ali-portfolio.vercel.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive portfolio I made to showcase my skills, projects, and experiences.
+## Overview
 
-Currently, two official plugins are available:
+This is my personal developer portfolio, created to not only highlight my technical and design skills but also experiment with the deployment of websites.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- A 3D animated model on the hero section for bigger screens
+- A 3D animated skills section with interactive orbs
+- A Lightweight Mode fallback for low-end or mobile devices
+- Fully responsive design
+- Smooth scrolling and subtle reveal animations
+- Deployed on Vercel for speed and scalability
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Frontend: React, Tailwind CSS
+- 3D Engine: @react-three/fiber, drei, three.js
+- Deployment: Vercel
+- Icons & Graphics: Google Icons
+- Performance Tools: Frameloop control and lazy loading of canvas via Suspense
